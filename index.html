@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prarambh Skills Solutions | Corporate Staffing & Recruitment Agency</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        :root {
+            --color-navy: #0A2540;
+            --color-navy-light: #1A365D;
+            --color-green: #2ECC71;
+            --color-green-glow: rgba(46, 204, 113, 0.4);
+            --color-warm-accent: #F39C12;
+            --color-white: #FFFFFF;
+            --color-slate-100: #F8FAFC;
+            --color-slate-200: #E2E8F0;
+            --color-slate-400: #94A3B8;
+            --color-slate-700: #334155;
+            --color-slate-800: #1E293B;
+            --color-glass-dark: rgba(10, 37, 64, 0.85);
+            --color-glass-light: rgba(255, 255, 255, 0.85);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-accent: 'Playfair Display', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-soft: 0 10px 30px -10px rgba(10, 37, 64, 0.1);
+            --shadow-glow: 0 0 20px rgba(46, 204, 113, 0.3);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        /* --- BASE RESET & SETUP --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-slate-100);
+            color: var(--color-slate-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- CUSTOM SCROLLBAR --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-navy);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-green);
+            border-radius: var(--radius-sm);
+        }
+
+        /* --- STRUCTURAL LAYOUT --- */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* Section Title Utilities */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-badge {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--color-green);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 16px;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--color-navy);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--color-slate-700);
+            font-size: 1.1rem;
+        }
+
+        /* BUTTONS WITH MOTION PHYSICS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-green), #27ae60);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2ecc71, var(--color-warm-accent));
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--color-navy);
+            color: var(--color-white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-navy);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* --- GLOBAL HEADER (GLASSMORPHISM WITH LOGO IMAGE) --- */
+        .global-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--color-glass-dark);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition-smooth);
+        }
+
+        .header-top {
+            background: rgba(5, 15, 26, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 0;
+        }
+
+        .header-top-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-info-pills {
+            display: flex;
+            gap: 16px;
+        }
+
+        .info-pill {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .info-pill:hover {
+            border-color: var(--color-green);
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--color-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: var(--shadow-glow);
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .header-main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        /* Responsive Brand Image Logo Layout */
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-img {
+            height: 48px; /* Ideal height for desktop header */
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            transition: var(--transition-smooth);
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .brand-logo-container:hover .brand-logo-img {
+            transform: scale(1.03);
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 12px;
+        }
+
+        .brand-main-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-white);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-sub-title {
+            font-size: 0.7rem;
+            color: var(--color-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* Sticky Navigation System */
+        .nav-bar {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding: 6px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--color-white);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--color-green);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- 1. HERO CANVAS & 3D RECRUITING WORLD --- */
+        .hero-canvas-section {
+            position: relative;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 50%, var(--color-navy-light), var(--color-navy));
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 140px;
+        }
+
+        /* Particle Network Canvas */
+        #interactive-particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: all;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* Kinetic Text Reveals */
+        .kinetic-headline {
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .kinetic-headline span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealCharacter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes revealCharacter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Floating 3D Geometric Accents */
+        .floating-wireframe-cube {
+            position: absolute;
+            border: 2px dashed rgba(46, 204, 113, 0.2);
+            border-radius: var(--radius-sm);
+            animation: float-slow 12s infinite linear;
+            pointer-events: none;
+        }
+
+        .cube-1 { width: 120px; height: 120px; top: 15%; left: 8%; }
+        .cube-2 { width: 80px; height: 80px; bottom: 20%; right: 10%; }
+
+        @keyframes float-slow {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* --- 2. ABOUT US & HUMAN-FIRST USP --- */
+        .about-section {
+            background: var(--color-white);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-story {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .about-story h3 {
+            font-size: 2rem;
+            color: var(--color-navy);
+            font-weight: 700;
+        }
+
+        .animated-counters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .counter-card {
+            background: var(--color-slate-100);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-slate-200);
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-green);
+            background: var(--color-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-green);
+            margin-bottom: 8px;
+        }
+
+        .counter-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-slate-700);
+        }
+
+        /* 4 Core Value Pillars Grid */
+        .value-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .value-pillar {
+            background: var(--color-slate-100);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-navy);
+            transition: var(--transition-smooth);
+        }
+
+        .value-pillar:hover {
+            transform: scale(1.03);
+            border-left-color: var(--color-green);
+            background: var(--color-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .value-pillar h4 {
+            font-size: 1.15rem;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .value-pillar p {
+            font-size: 0.9rem;
+            color: var(--color-slate-700);
+        }
+
+        /* Signature Cultural Banner */
+        .cultural-banner {
+            background: linear-gradient(135deg, var(--color-navy-light), var(--color-navy));
+            color: var(--color-white);
+            padding: 60px 40px;
+            border-radius: var(--radius-lg);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .cultural-banner-bg {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            font-size: 15rem;
+            font-family: var(--font-accent);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .cultural-quote {
+            font-family: var(--font-accent);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.4;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 16px;
+        }
+
+        .cultural-author {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-green);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- 3. RECRUITMENT & HIRING MATRIX (3D TILT CARDS) --- */
+        .skilling-matrix-section {
+            background: var(--color-slate-100);
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        /* Hardware-Accelerated 3D Card Setup */
+        .tilt-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            border: 1px solid rgba(10, 37, 64, 0.05);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tilt-card:hover {
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.12);
+        }
+
+        .tilt-card-content {
+            transform: translateZ(30px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-green);
+            margin-bottom: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .tilt-card:hover .card-icon {
+            background: var(--color-green);
+            color: var(--color-white);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 16px;
+        }
+
+        .card-desc {
+            color: var(--color-slate-700);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--color-slate-100);
+            color: var(--color-slate-700);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* --- 4. MULTI-SECTOR TALENT RECRUITMENT --- */
+        .industry-section {
+            background: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .industry-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--color-green);
+            transform: scaleY(0);
+            transition: var(--transition-smooth);
+            transform-origin: bottom;
+        }
+
+        .industry-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-5px);
+            border-color: rgba(46, 204, 113, 0.4);
+        }
+
+        .industry-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .industry-card-icon {
+            font-size: 2rem;
+            color: var(--color-green);
+            margin-bottom: 16px;
+        }
+
+        .industry-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .industry-stats {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--color-green);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .industry-detail {
+            font-size: 0.85rem;
+            color: var(--color-slate-400);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition-smooth);
+        }
+
+        .industry-card:hover .industry-detail {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 5. STRATEGIC CAMPUS ALLIANCES CAROUSEL --- */
+        .alliances-section {
+            background: var(--color-white);
+            overflow: hidden;
+        }
+
+        /* Continuous Loop Animation */
+        .carousel-track-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: loop-scroll 25s linear infinite;
+        }
+
+        @keyframes loop-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .alliance-card {
+            background: var(--color-slate-100);
+            padding: 30px 40px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-slate-200);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 400px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .alliance-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-green);
+            background: var(--color-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .alliance-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--color-navy);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .alliance-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 4px;
+        }
+
+        .alliance-info p {
+            font-size: 0.85rem;
+            color: var(--color-slate-700);
+        }
+
+        .badge-grid {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .acc-badge {
+            background: rgba(10, 37, 64, 0.08);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--color-navy);
+        }
+
+        /* --- 6. DUAL-LOCATION INTERACTIVE HUB & FOOTER --- */
+        .hub-section {
+            background: var(--color-slate-100);
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Dual Map Interactive Switching Component */
+        .location-hub {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hub-switch-tabs {
+            display: flex;
+            background: var(--color-slate-100);
+            padding: 6px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .hub-tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: var(--color-slate-700);
+        }
+
+        .hub-tab.active {
+            background: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .location-view-pane {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .location-view-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .location-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .location-map-mock {
+            width: 100%;
+            height: 250px;
+            background: #E2E8F0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--color-slate-200);
+        }
+
+        .mock-map-visual {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        .map-pin-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--color-navy);
+            color: var(--color-white);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 25px rgba(10, 37, 64, 0.3);
+            border: 2px solid var(--color-green);
+        }
+
+        .location-details-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .meta-item {
+            background: var(--color-slate-100);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .meta-item h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-slate-700);
+            margin-bottom: 4px;
+        }
+
+        .meta-item p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-navy);
+        }
+
+        /* High-Performance Dynamic Lead Form */
+        .lead-form-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(10, 37, 64, 0.05);
+        }
+
+        .lead-form-card h3 {
+            font-size: 1.8rem;
+            color: var(--color-navy);
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-slate-700);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-slate-200);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            background: var(--color-slate-100);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-green);
+            background: var(--color-white);
+            box-shadow: 0 0 0 4px var(--color-green-glow);
+        }
+
+        /* --- FOOTER SECTION --- */
+        .footer {
+            background: var(--color-navy);
+            color: var(--color-white);
+            padding: 80px 0 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: var(--color-slate-400);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h5::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 30px;
+            height: 2px;
+            background: var(--color-green);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--color-slate-400);
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-green);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--color-slate-400);
+        }
+
+        /* --- PERSISTENT FLOATING ACTIONS & CHANNELS --- */
+        .floating-action-dock {
+            position: fixed;
+            right: 24px;
+            bottom: 40px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .floating-action-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-white);
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .floating-whatsapp {
+            background: #25D366;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-call {
+            background: var(--color-navy);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Slide-Out Quick Inquiry Panel */
+        .quick-inquiry-trigger {
+            background: var(--color-warm-accent);
+            color: var(--color-white);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 16px 8px;
+            font-weight: 700;
+            border-radius: 8px 0 0 8px;
+            position: fixed;
+            right: 0;
+            top: 40%;
+            z-index: 998;
+            cursor: pointer;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .quick-inquiry-trigger:hover {
+            padding-right: 12px;
+        }
+
+        .quick-inquiry-panel {
+            position: fixed;
+            right: -420px;
+            top: 0;
+            width: 420px;
+            height: 100vh;
+            background: var(--color-white);
+            z-index: 1001;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+            transition: var(--transition-smooth);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quick-inquiry-panel.active {
+            right: 0;
+        }
+
+        .panel-close {
+            align-self: flex-end;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-slate-700);
+            transition: var(--transition-smooth);
+        }
+
+        .panel-close:hover {
+            color: var(--color-green);
+        }
+
+        /* Persistent Social Dock */
+        .social-dock {
+            position: fixed;
+            left: 24px;
+            bottom: 40px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-dock-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--color-navy);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--color-slate-200);
+        }
+
+        .social-dock-icon:hover {
+            background: var(--color-green);
+            color: var(--color-white);
+            transform: translateY(-4px);
+        }
+
+        /* --- LIGHTBOX OVERLAY / PROGRAM MODALS --- */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-overlay.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-slate-700);
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-close:hover {
+            color: var(--color-green);
+        }
+
+        /* --- BOTTOM MOBILE NAVIGATION BAR --- */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--color-glass-dark);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 999;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            grid-template-columns: repeat(4, 1fr);
+            padding: 8px 0;
+        }
+
+        .mobile-bottom-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .mobile-bottom-item i {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            color: var(--color-green);
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 1050px) {
+            .nav-bar {
+                gap: 16px;
+            }
+            .brand-main-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid, .hub-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-bar {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .header-top {
+                display: none;
+            }
+
+            .mobile-bottom-nav {
+                display: grid;
+            }
+
+            .floating-action-dock {
+                bottom: 80px;
+                right: 16px;
+            }
+
+            .social-dock {
+                display: none;
+            }
+
+            .quick-inquiry-trigger {
+                top: 50%;
+            }
+
+            .quick-inquiry-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .animated-counters-grid, .value-pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- GLOBAL HEADER --- -->
+    <header class="global-header">
+        <div class="header-top">
+            <div class="container header-top-container">
+                <div class="top-info-pills">
+                    <a href="mailto:info@prarambhskills.com" class="info-pill">
+                        <i class="fa-solid fa-envelope text-green"></i> info@prarambhskills.com
+                    </a>
+                    <a href="tel:+916230509372" class="info-pill">
+                        <span class="pulse-indicator"></span> +91 62305-09372
+                    </a>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; font-weight: 500;">
+                    Corporate Recruitment &amp; General Manpower Deployment
+                </div>
+            </div>
+        </div>
+        <div class="container header-main-container">
+            <!-- Brand Anchor - Configured with Actual Image Logo Link -->
+            <a href="#home" class="brand-logo-container">
+                <!-- Replace 'logo.png' below with your actual image path (e.g. assets/logo.png or link) -->
+                <img src="logo_site.jpeg" alt="Prarambh Skills Logo" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">Prarambh Skills</span>
+                    <span class="brand-sub-title">Building Skills. Creating Opportunities.</span>
+                </div>
+            </a>
+            <nav class="nav-bar">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#recruitment" class="nav-link">Staffing Services</a>
+                <a href="#industries" class="nav-link">Sectors</a>
+                <a href="#alliances" class="nav-link">Campus Alliances</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button class="btn btn-primary" onclick="toggleLightbox('partner-lightbox')">Hire Talent</button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- 1. HERO CANVAS & 3D RECRUITING WORLD --- -->
+    <section id="home" class="hero-canvas-section">
+        <canvas id="interactive-particle-canvas"></canvas>
+        <div class="floating-wireframe-cube cube-1"></div>
+        <div class="floating-wireframe-cube cube-2"></div>
+        <div class="container hero-inner">
+            <div class="section-badge">Manpower Supply &amp; Recruitment Hub</div>
+            <h1 class="kinetic-headline" id="kinetic-header">
+                <span>Connecting</span> <span>Enterprises</span> <span>With</span><br>
+                <span>India's</span> <span>Right</span> <span>Professional</span> <span>Talent</span>
+            </h1>
+            <p class="hero-subtitle">
+                We handle the sourcing, screening, and deployment loop so your business can scale smoothly. Bridging qualified industrial manpower with plant locations, logistics zones, and IT enterprises.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn btn-primary" onclick="setFormCategory('Employer')">Hire Top Talent (Employers)</a>
+                <a href="#contact" class="btn btn-secondary" onclick="setFormCategory('Candidate')">Get Hired (Candidates)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- 2. ABOUT US & THE RECRUITER'S USP --- -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-story">
+                    <div class="section-badge">Human-First Recruitment</div>
+                    <h3>We Screen Candidates Through Genuine Engagement</h3>
+                    <p class="section-desc">
+                        Modern HR relies on digital algorithms to filter resumes. At Prarambh Skills Solutions, we believe that proper hiring happens when you understand human capabilities, career aspirations, and client environments directly. 
+                    </p>
+                    <p class="section-desc" style="margin-top: -10px; font-size: 0.95rem;">
+                        We coordinate complete recruitment life cycles: from sourcing candidates in rural or semi-urban hubs to technical matching, final onboarding, compliance audits, and payroll management.
+                    </p>
+                    
+                    <div class="animated-counters-grid">
+                        <div class="counter-card" data-target="45">
+                            <div class="counter-number">0+</div>
+                            <div class="counter-label">Corporate Clients</div>
+                        </div>
+                        <div class="counter-card" data-target="2800">
+                            <div class="counter-number">0+</div>
+                            <div class="counter-label">Total Placements</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="value-pillars-container">
+                    <div class="section-badge" style="margin-bottom: 24px;">Our Recruitment Standards</div>
+                    <div class="value-pillars-grid">
+                        <div class="value-pillar">
+                            <h4>Targeted Sourcing</h4>
+                            <p>Multi-channel candidate identification utilizing local community networks and campus portals.</p>
+                        </div>
+                        <div class="value-pillar">
+                            <h4>Direct Verification</h4>
+                            <p>Primary document check, background checks, and initial work capability mapping.</p>
+                        </div>
+                        <div class="value-pillar">
+                            <h4>Statutory Compliance</h4>
+                            <p>Adhering to regional minimum wage structures, ESIC, and provident fund standards.</p>
+                        </div>
+                        <div class="value-pillar">
+                            <h4>Flexible Scaling</h4>
+                            <p>Rapidly deploying extra personnel to address seasonal production peaks or temporary workloads.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recruiter Signature Cultural Banner -->
+            <div class="cultural-banner">
+                <div class="cultural-banner-bg">Recruit</div>
+                <p class="cultural-quote">
+                    “We call, we speak, we meet, we drink coffee, we shake hands, we say Namaste. We are humans and not robots.”
+                </p>
+                <div class="cultural-author">— HR Advisory Desk, Prarambh Skills Solutions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- 3. RECRUITMENT & STAFFING MATRIX (3D TILT CARDS) --- -->
+    <section id="recruitment" class="skilling-matrix-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Our Recruiting Offerings</div>
+                <h2 class="section-title">Comprehensive Staffing &amp; Recruitment Matrix</h2>
+                <p class="section-desc">Practical workforce frameworks engineered to reduce administrative overheads and secure quality personnel.</p>
+            </div>
+
+            <div class="matrix-grid">
+                <!-- Card 1 -->
+                <div class="tilt-card" onclick="openProgramDetails('contract-staffing')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-people-carry-box"></i></div>
+                        <h3 class="card-title">Contract &amp; Gig Staffing</h3>
+                        <p class="card-desc">Flexible, short-term, or long-term operational personnel supplied to manage seasonal spikes and shift operations.</p>
+                        <div class="card-tags">
+                            <span class="tag">On-Demand Deployment</span>
+                            <span class="tag">Compliance Managed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tilt-card" onclick="openProgramDetails('permanent-placement')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-address-card"></i></div>
+                        <h3 class="card-title">Permanent Direct Hiring</h3>
+                        <p class="card-desc">Comprehensive candidate sourcing, initial evaluation, and matching for permanent executive or technical positions.</p>
+                        <div class="card-tags">
+                            <span class="tag">Executive Search</span>
+                            <span class="tag">Rigorous Screening</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tilt-card" onclick="openProgramDetails('payroll-hrms')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h3 class="card-title">Payroll &amp; HR Compliance</h3>
+                        <p class="card-desc">Managing employee monthly pay registers, direct bank transfers, provident funds, and regional audit reporting.</p>
+                        <div class="card-tags">
+                            <span class="tag">EPF &amp; ESIC Audited</span>
+                            <span class="tag">Transparent Payroll</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="tilt-card" onclick="openProgramDetails('apprenticeship-naps')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="card-title">Apprenticeships (NAPS/NATS)</h3>
+                        <p class="card-desc">Leveraging government schemes to deploy skill-based apprentice cohorts under structured company programs.</p>
+                        <div class="card-tags">
+                            <span class="tag">NAPS Compliance</span>
+                            <span class="tag">On-the-Job Training</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="tilt-card" onclick="openProgramDetails('facility-management')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-building-user"></i></div>
+                        <h3 class="card-title">Facility Support Staff</h3>
+                        <p class="card-desc">Deploying on-site support crews, premises security, warehouse logistics workers, and workspace coordinators.</p>
+                        <div class="card-tags">
+                            <span class="tag">SLA Performance</span>
+                            <span class="tag">Trained Custodians</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="tilt-card" onclick="openProgramDetails('rpl-certification')">
+                    <div class="tilt-card-content">
+                        <div class="card-icon"><i class="fa-solid fa-id-badge"></i></div>
+                        <h3 class="card-title">RPL Assessment Matching</h3>
+                        <p class="card-desc">Recognizing existing field experience, matching work accomplishments with standardized formal credentials.</p>
+                        <div class="card-tags">
+                            <span class="tag">NSQF Verification</span>
+                            <span class="tag">Prior Work Audit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- 4. MULTI-SECTOR SECTOR SYSTEM --- -->
+    <section id="industries" class="industry-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: rgba(255,255,255,0.05); color: var(--color-green);">Placement Ecosystem</div>
+                <h2 class="section-title" style="color: var(--color-white);">Industrial Sectors We Hire For</h2>
+                <p class="section-desc" style="color: var(--color-slate-400);">Matching professional candidate segments with direct operational demands.</p>
+            </div>
+
+            <div class="industry-grid">
+                <!-- BFSI -->
+                <div class="industry-card" onclick="showSectorInfo('BFSI')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                    <h3 class="industry-name">BFSI</h3>
+                    <div class="industry-stats">Active Recruitment Channels</div>
+                    <p class="industry-detail">Field marketing managers, credit check verifiers, loan verification agents, and regional accounting help.</p>
+                </div>
+                <!-- Engineering & Automobile -->
+                <div class="industry-card" onclick="showSectorInfo('Auto')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-car-wrench"></i></div>
+                    <h3 class="industry-name">Engineering &amp; Auto</h3>
+                    <div class="industry-stats">Plant Ready Staff</div>
+                    <p class="industry-detail">Technical operators, precision machine assistants, assembly line technicians, and shop safety checkers.</p>
+                </div>
+                <!-- FMCG -->
+                <div class="industry-card" onclick="showSectorInfo('FMCG')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <h3 class="industry-name">FMCG</h3>
+                    <div class="industry-stats">High-volume placement</div>
+                    <p class="industry-detail">Sourcing field agents, local inventory managers, billing assistants, and logistics warehouse helpers.</p>
+                </div>
+                <!-- Hospitality -->
+                <div class="industry-card" onclick="showSectorInfo('Hospitality')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+                    <h3 class="industry-name">Hospitality</h3>
+                    <div class="industry-stats">Front &amp; Back of House</div>
+                    <p class="industry-detail">Banquet event teams, food service assistants, kitchen cleaners, and guest desk coordinators.</p>
+                </div>
+                <!-- Telecom & Power -->
+                <div class="industry-card" onclick="showSectorInfo('Telecom')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-tower-cell"></i></div>
+                    <h3 class="industry-name">Telecom &amp; Power</h3>
+                    <div class="industry-stats">Field Certified</div>
+                    <p class="industry-detail">Underground fiber laying crew, technical tower checkers, local electrical line assistants, and solar installers.</p>
+                </div>
+                <!-- Agriculture -->
+                <div class="industry-card" onclick="showSectorInfo('Agri')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3 class="industry-name">Agriculture</h3>
+                    <div class="industry-stats">Processing Helpers</div>
+                    <p class="industry-detail">Warehouse stock management helpers, cold storage processors, packaging supervisors, and delivery operators.</p>
+                </div>
+                <!-- IT / ITeS -->
+                <div class="industry-card" onclick="showSectorInfo('IT')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="industry-name">IT / ITeS</h3>
+                    <div class="industry-stats">Technical Hiring</div>
+                    <p class="industry-detail">Desktop support technicians, local help desk staff, database management support, and systems test assistants.</p>
+                </div>
+                <!-- Logistics & E-Commerce -->
+                <div class="industry-card" onclick="showSectorInfo('Logistics')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <h3 class="industry-name">Logistics &amp; E-Commerce</h3>
+                    <div class="industry-stats">Warehouse Manpower</div>
+                    <p class="industry-detail">Order sorting helpers, pick and pack personnel, vehicle loading crew, and warehouse inventories operators.</p>
+                </div>
+                <!-- Retail & Sales -->
+                <div class="industry-card" onclick="showSectorInfo('Retail')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3 class="industry-name">Retail &amp; Sales</h3>
+                    <div class="industry-stats">In-Store Sales Staff</div>
+                    <p class="industry-detail">Front store sales representatives, cashier desk personnel, billing clerks, and regional promotion handlers.</p>
+                </div>
+                <!-- Education -->
+                <div class="industry-card" onclick="showSectorInfo('Education')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 class="industry-name">Education</h3>
+                    <div class="industry-stats">Staff Sourcing</div>
+                    <p class="industry-detail">Practical trainers, specialized laboratory assistants, regional student counselors, and administrative helpers.</p>
+                </div>
+                <!-- Smart Energy Solutions -->
+                <div class="industry-card" onclick="showSectorInfo('Energy')">
+                    <div class="industry-card-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                    <h3 class="industry-name">Smart Energy</h3>
+                    <div class="industry-stats">Field-Tested Crew</div>
+                    <p class="industry-detail">Renewable sector technicians, on-site solar setup helpers, grid monitors, and operations support teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- 5. STRATEGIC CAMPUS ALLIANCES CAROUSEL --- -->
+    <section id="alliances" class="alliances-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Hiring Pipelines</div>
+                <h2 class="section-title">Campus Sourcing &amp; Training Tie-Ups</h2>
+                <p class="section-desc">We collaborate with regional institutes to source active, job-ready freshers for our clients.</p>
+            </div>
+
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <!-- Alliance 1 -->
+                    <div class="alliance-card" onclick="showSyllabusModal('AIU')">
+                        <div class="alliance-logo">AIU</div>
+                        <div class="alliance-info">
+                            <h4>Asian International University</h4>
+                            <p>Campus Placement Loop</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Placement Partner</span>
+                                <span class="acc-badge">Vocational Streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alliance 2 -->
+                    <div class="alliance-card" onclick="showSyllabusModal('Orchid')">
+                        <div class="alliance-logo">OU</div>
+                        <div class="alliance-info">
+                            <h4>Orchid University</h4>
+                            <p>Skilling &amp; Sourcing Tie-Up</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Fresher Sourcing</span>
+                                <span class="acc-badge">Workforce Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate cards for infinite loop scroll -->
+                    <div class="alliance-card" onclick="showSyllabusModal('AIU')">
+                        <div class="alliance-logo">AIU</div>
+                        <div class="alliance-info">
+                            <h4>Asian International University</h4>
+                            <p>Campus Placement Loop</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Placement Partner</span>
+                                <span class="acc-badge">Vocational Streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alliance-card" onclick="showSyllabusModal('Orchid')">
+                        <div class="alliance-logo">OU</div>
+                        <div class="alliance-info">
+                            <h4>Orchid University</h4>
+                            <p>Skilling &amp; Sourcing Tie-Up</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Fresher Sourcing</span>
+                                <span class="acc-badge">Workforce Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- 6. DUAL-LOCATION INTERACTIVE HUB & CONTACT --- -->
+    <section id="contact" class="hub-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Hiring Desk</div>
+                <h2 class="section-title">Schedule a Recruitment Conversation</h2>
+                <p class="section-desc">Employers seeking workforce solutions, or candidates applying for roles, please connect below.</p>
+            </div>
+
+            <div class="hub-grid">
+                <!-- Location Hub (Left) -->
+                <div class="location-hub">
+                    <div class="hub-switch-tabs">
+                        <div class="hub-tab active" onclick="switchLocation('UP')">Registered Office (U.P.)</div>
+                        <div class="hub-tab" onclick="switchLocation('HP')">Branch Office (H.P.)</div>
+                    </div>
+
+                    <!-- UP Pane -->
+                    <div id="pane-UP" class="location-view-pane active">
+                        <div class="location-card-content">
+                            <h4>Uttar Pradesh Recruitment Desk</h4>
+                            <p class="section-desc">Sourcing central operations and administrative office overseeing East &amp; North deployment circles.</p>
+                            <div class="location-map-mock">
+                                <div class="mock-map-visual" style="background-image: linear-gradient(rgba(10,37,64,0.5), rgba(10,37,64,0.5)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80')"></div>
+                                <div class="map-pin-badge">
+                                    <i class="fa-solid fa-location-dot"></i> Kushinagar, U.P.
+                                </div>
+                            </div>
+                            <div class="location-details-meta">
+                                <div class="meta-item">
+                                    <h5>Office Address</h5>
+                                    <p>H.N 294, Ground Floor, Inderpur, Kaptanganj, Kushinagar, U.P.</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>Primary Focus</h5>
+                                    <p>Corporate Sourcing, Screening, Sourcing Schemes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HP Pane -->
+                    <div id="pane-HP" class="location-view-pane">
+                        <div class="location-card-content">
+                            <h4>Himachal Industrial Hiring Desk</h4>
+                            <p class="section-desc">Located next to manufacturing zones to supply active local plant personnel and direct production support.</p>
+                            <div class="location-map-mock">
+                                <div class="mock-map-visual" style="background-image: linear-gradient(rgba(10,37,64,0.5), rgba(10,37,64,0.5)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80')"></div>
+                                <div class="map-pin-badge">
+                                    <i class="fa-solid fa-location-dot"></i> Baddi Solan, H.P.
+                                </div>
+                            </div>
+                            <div class="location-details-meta">
+                                <div class="meta-item">
+                                    <h5>Office Address</h5>
+                                    <p>128, Office No 10, Basanti Bhag, Baddi Solan, H.P.</p>
+                                </div>
+                                <div class="meta-item">
+                                    <h5>Primary Focus</h5>
+                                    <p>Contract Staffing, Warehouse Helpers, Local Sourcing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dual Purpose Lead Form (Right) -->
+                <div class="lead-form-card">
+                    <h3 id="form-heading">Connect With Our Hiring Team</h3>
+                    <form id="leadForm" onsubmit="handleFormSubmission(event, 'General Hiring Request')">
+                        <div class="form-group">
+                            <label class="form-label">You Are A:</label>
+                            <select id="form-role-type" class="form-control" onchange="adaptFormFields()" required>
+                                <option value="Employer" selected>Employer (Looking to Hire Staff)</option>
+                                <option value="Candidate">Candidate (Looking for Job Placement)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-name">Your Full Name</label>
+                            <input type="text" id="form-name" class="form-control" placeholder="Contact Person Name" required>
+                        </div>
+                        <div class="form-group" id="grp-company">
+                            <label class="form-label">Company / Organization Name</label>
+                            <input type="text" id="form-company" class="form-control" placeholder="e.g. Acme Logistics">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-service">Required Hiring Category</label>
+                            <select id="form-service" class="form-control" required>
+                                <option value="" disabled selected>Choose a workforce class</option>
+                                <option value="Contract & Gig Staffing">Contract &amp; Gig Staffing</option>
+                                <option value="Permanent Placement Sourcing">Permanent Direct Hiring</option>
+                                <option value="NAPS/NATS Apprentices">NAPS/NATS Apprentices</option>
+                                <option value="Payroll & Compliance Management">Payroll &amp; HR Compliance</option>
+                                <option value="On-Site Support / Custodial Crew">On-site Support / Custodial Crew</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Active Callback Number</label>
+                            <input type="tel" id="form-phone" class="form-control" placeholder="e.g. +91 98765-43210" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+                            Submit Sourcing Request <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Prarambh Skills Solutions</h4>
+                    <p>Building Skills. Creating Opportunities.</p>
+                    <p style="font-size: 0.85rem;">Corporate recruiting, flexible manpower supply, and statutory compliance management for operations throughout major industrial corridors.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Hiring Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="#recruitment">Contract Staffing</a></li>
+                        <li><a href="#recruitment">Permanent Sourcing</a></li>
+                        <li><a href="#recruitment">NAPS / NATS Deployment</a></li>
+                        <li><a href="#recruitment">Payroll Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Campus Alliances</h5>
+                    <ul class="footer-links">
+                        <li><a href="#alliances" onclick="showSyllabusModal('AIU')">Asian International University</a></li>
+                        <li><a href="#alliances" onclick="showSyllabusModal('Orchid')">Orchid University</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Get In Touch</h5>
+                    <ul class="footer-links">
+                        <li style="font-size: 0.85rem; color: var(--color-slate-400);">
+                            <i class="fa-solid fa-phone" style="color: var(--color-green); margin-right: 8px;"></i>+91 62305-09372
+                        </li>
+                        <li style="font-size: 0.85rem; color: var(--color-slate-400);">
+                            <i class="fa-solid fa-envelope" style="color: var(--color-green); margin-right: 8px;"></i>info@prarambhskills.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Prarambh Skills Solutions. All Rights Reserved.</div>
+                <div>Recruitment operations mapped with strict statutory compliances.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- PERSISTENT FLOATING ACTIONS --- -->
+    <div class="floating-action-dock">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/916230509372?text=Hello%20Prarambh%20Skills,%20I%20am%20interested%20in%20your%20Recruitment%20%26%20Staffing%20Services." target="_blank" class="floating-action-btn floating-whatsapp" title="Connect with our HR & Hiring Advisory.">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <!-- Call -->
+        <a href="tel:+916230509372" class="floating-action-btn floating-call" title="Direct Call Dial">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Persistent Social Dock -->
+    <div class="social-dock">
+        <a href="#" class="social-dock-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-dock-icon"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-dock-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-dock-icon"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+    <!-- Quick Sourcing Inquiry Trigger & Slide-Out Panel -->
+    <div class="quick-inquiry-trigger" onclick="toggleQuickInquiryPanel()">
+        Quick Sourcing Desk <i class="fa-solid fa-chevron-left" style="margin-top: 8px;"></i>
+    </div>
+
+    <div id="quickInquiryPanel" class="quick-inquiry-panel">
+        <div class="panel-close" onclick="toggleQuickInquiryPanel()"><i class="fa-solid fa-xmark"></i></div>
+        <h3 style="margin: 20px 0; color: var(--color-navy); font-weight:800;">Quick Sourcing</h3>
+        <form id="quickForm" onsubmit="handleFormSubmission(event, 'Quick Sourcing Callback')">
+            <div class="form-group">
+                <label class="form-label">Contact Name</label>
+                <input type="text" id="quick-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Organization Name</label>
+                <input type="text" id="quick-company" class="form-control" placeholder="Write Candidate if job seeker" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Worker Class Required</label>
+                <input type="text" id="quick-service" class="form-control" placeholder="e.g. Plant Helpers, Retail Staff" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Direct Phone Number</label>
+                <input type="tel" id="quick-phone" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Schedule Recruiter Callback</button>
+        </form>
+    </div>
+
+    <!-- --- MOBILE BOTTOM NAVIGATION BAR --- -->
+    <div class="mobile-bottom-nav">
+        <a href="tel:+916230509372" class="mobile-bottom-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call</span>
+        </a>
+        <a href="https://wa.me/916230509372" class="mobile-bottom-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="#recruitment" class="mobile-bottom-item">
+            <i class="fa-solid fa-gears"></i>
+            <span>Services</span>
+        </a>
+        <a href="#contact" class="mobile-bottom-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Hiring Desk</span>
+        </a>
+    </div>
+
+    <!-- --- LIGHTBOX / MODAL OVERLAYS --- -->
+    <!-- Employer Sourcing Lightbox -->
+    <div id="partner-lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutsideClick(event)">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="toggleLightbox('partner-lightbox')"><i class="fa-solid fa-xmark"></i></div>
+            <h3 style="margin-bottom: 20px; color: var(--color-navy); font-weight: 800;">Hire Top Talent</h3>
+            <p style="margin-bottom: 24px; color: var(--color-slate-700);">Provide your organizational details below and we will assign a dedicated recruiter to handle your requirements.</p>
+            <form onsubmit="handleFormSubmission(event, 'Employer Partnership Sourcing')">
+                <div class="form-group">
+                    <label class="form-label">Organization Name</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Talent Requirement Class</label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>Select worker category</option>
+                        <option value="General Industrial Manpower">General Industrial Manpower</option>
+                        <option value="Logistics and E-commerce Sorters">Logistics &amp; E-commerce Sorters</option>
+                        <option value="IT Technical Personnel">IT Technical Personnel</option>
+                        <option value="Apprentices (NAPS/NATS)">Apprentices (NAPS/NATS)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Contact Person Phone</label>
+                    <input type="tel" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Connect with Sourcing Team</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Generic Program Details Lightbox -->
+    <div id="program-lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutsideClick(event)">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="toggleLightbox('program-lightbox')"><i class="fa-solid fa-xmark"></i></div>
+            <h3 id="program-title" style="margin-bottom: 16px; color: var(--color-navy); font-weight: 800;">Hiring Solution Detail</h3>
+            <p id="program-desc" style="color: var(--color-slate-700); margin-bottom: 24px; line-height: 1.6;">Description text.</p>
+            <div style="background: var(--color-slate-100); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 24px;">
+                <h5 style="color: var(--color-navy); font-weight: 700; margin-bottom: 6px;">Compliance Verification</h5>
+                <p style="font-size: 0.85rem; color: var(--color-slate-700);">Every placement deployment includes primary document background checks, statutory alignment, and minimal dispute risks.</p>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="toggleLightbox('program-lightbox'); window.location.hash='#contact';">Submit Sourcing Query</button>
+        </div>
+    </div>
+
+    <!-- Syllabus/Placement Info Modal -->
+    <div id="syllabus-lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutsideClick(event)">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="toggleLightbox('syllabus-lightbox')"><i class="fa-solid fa-xmark"></i></div>
+            <h3 id="syllabus-title" style="margin-bottom: 16px; color: var(--color-navy); font-weight: 800;">Campus Sourcing Pipeline</h3>
+            <div id="syllabus-details" style="color: var(--color-slate-700); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                Details here.
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="toggleLightbox('syllabus-lightbox'); window.location.hash='#contact';">Inquire for Active Freshers Pool</button>
+        </div>
+    </div>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        // Data Structures mapping for recruiting workflows
+        const programsData = {
+            'contract-staffing': {
+                title: 'Contract & Gig Staffing Solutions',
+                desc: 'Prarambh Skills provides verified, compliant on-site industrial and general contractors. We coordinate local talent identification, verify identity cards, handle minimum-wage regulatory audits, and ensure transparent, on-time payroll delivery to maintain shift continuity.'
+            },
+            'permanent-placement': {
+                title: 'Permanent Direct Hiring',
+                desc: 'We assist enterprises in identifying skilled supervisors, specialized mechanics, corporate office managers, and sales specialists. Our recruitment desk performs reference reviews and verified background screens prior to placement.'
+            },
+            'payroll-hrms': {
+                title: 'Payroll & HR Compliance',
+                desc: 'Reducing your internal company overheads. We process employee hours, direct bank disbursements, Provident Fund (EPF), healthcare deposits (ESIC), professional tax submissions, and handle official compliance audits.'
+            },
+            'apprenticeship-naps': {
+                title: 'Apprenticeships (NAPS/NATS)',
+                desc: 'Optimize your operational training setups. We align with central government apprenticeship guidelines (NAPS/NATS) to source, deploy, and verify stipend allocations for structured learner cohorts.'
+            },
+            'facility-management': {
+                title: 'Facility Support Staff',
+                desc: 'Supply of vetted on-site crews for commercial layouts, storage spaces, assembly plants, and administrative buildings. All personnel are fully verified and trained in basic environmental safety protocols.'
+            },
+            'rpl-certification': {
+                title: 'RPL Assessment Matching',
+                desc: 'We map previously uncertified workers with formal National Skill Qualification Framework (NSQF) levels, recognizing their prior real-world field experience to upgrade their hiring standards.'
+            }
+        };
+
+        const syllabusData = {
+            'AIU': {
+                title: 'Asian International University Sourcing Pipeline',
+                details: `
+                    <strong>Fresher Placement Program:</strong> Directly sourcing fresh vocational stream graduates for entry-level corporate deployments.<br><br>
+                    <strong>Functional Batches Available:</strong><br>
+                    • Retail Services & Warehousing Operations<br>
+                    • Automotive Line Production Specialists<br>
+                    • Technical Customer Service & Support<br><br>
+                    We handle immediate interview scheduling, background checks, and on-site integration loops.
+                `
+            },
+            'Orchid': {
+                title: 'Orchid University Sourcing Collaboration',
+                details: `
+                    <strong>Industrial Training Partnerships:</strong> Connecting qualified apprentices and practical diploma holders to manufacturing locations.<br><br>
+                    <strong>Functional Batches Available:</strong><br>
+                    • Production Management Assistants<br>
+                    • Clean Energy Assembly Handlers<br>
+                    • Front Desk Office Operations<br><br>
+                    All pools are ready for direct apprenticeship loops or seasonal contract roles.
+                `
+            }
+        };
+
+        const sectorData = {
+            'BFSI': 'Sourcing verified backend KYC processors, physical address verifiers, retail loan coordinators, and field sales teams.',
+            'Auto': 'Certified plant assembly assistants, CNC machine coordinators, mechanical helpers, and general shop floor staff.',
+            'FMCG': 'Sourcing localized product delivery drivers, FMCG warehouse assistants, billing operators, and display coordinators.',
+            'Hospitality': 'Sourcing banquet crew, food layout preparation staff, lobby helpers, and hospitality custodians.',
+            'Telecom': 'Sourcing fiber deployment crews, physical site supervisors, and tele-sales agents.',
+            'Agri': 'Sourcing cold-storage helpers, crop sorters, automated plant packaging crews, and logistics supervisors.',
+            'IT': 'Desktop help desk support, local network troubleshooting assistants, and customer service teams.',
+            'Logistics': 'Sourcing high-volume warehouse pickers, product packers, vehicle loading teams, and dispatch coordinators.',
+            'Retail': 'Sourcing store service representatives, billing checkouts, retail inventory helpers, and local sales staff.',
+            'Education': 'Technical trainers, educational facility helpers, student counselors, and administrative staff.',
+            'Energy': 'Deploying physical solar installation crews, smart meter repair operators, and plant safety checkers.'
+        };
+
+        // 1. Particle Network Canvas Simulation
+        const canvas = document.getElementById('interactive-particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function initCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            createParticles();
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(46, 204, 113, 0.6)';
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= dx / dist * force * 2;
+                    this.y -= dy / dist * force * 2;
+                }
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            const count = Math.min(Math.floor(canvas.width / 15), 100);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connectParticles();
+            requestAnimationFrame(animateParticles);
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist/120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('resize', initCanvas);
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        initCanvas();
+        animateParticles();
+
+        // 2. Hardware-Accelerated 3D Tilt Cards Physics
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xc = rect.width / 2;
+                const yc = rect.height / 2;
+                const rx = ((yc - y) / yc) * 10;
+                const ry = ((x - xc) / xc) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // 3. Scroll-Triggered Values Counter Logic
+        const counterSection = document.querySelector('.animated-counters-grid');
+        const counters = document.querySelectorAll('.counter-card');
+        let counterStarted = false;
+
+        function runCounters() {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const numberEl = counter.querySelector('.counter-number');
+                let count = 0;
+                const increment = Math.ceil(target / 60);
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        numberEl.innerText = count + "+";
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        numberEl.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counterStarted) {
+                    runCounters();
+                    counterStarted = true;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (counterSection) {
+            observer.observe(counterSection);
+        }
+
+        // 4. Dual-Location Interactive Switch
+        function switchLocation(locationKey) {
+            document.querySelectorAll('.hub-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.location-view-pane').forEach(pane => pane.classList.remove('active'));
+
+            const activeTab = event.currentTarget;
+            activeTab.classList.add('active');
+
+            const targetPane = document.getElementById(`pane-${locationKey}`);
+            if (targetPane) targetPane.classList.add('active');
+        }
+
+        // 5. Lightbox Handlers
+        function toggleLightbox(id) {
+            const overlay = document.getElementById(id);
+            if (overlay) overlay.classList.toggle('active');
+        }
+
+        function closeLightboxOnOutsideClick(event) {
+            if (event.target === event.currentTarget) {
+                event.currentTarget.classList.remove('active');
+            }
+        }
+
+        function openProgramDetails(key) {
+            const data = programsData[key];
+            if (data) {
+                document.getElementById('program-title').innerText = data.title;
+                document.getElementById('program-desc').innerText = data.desc;
+                toggleLightbox('program-lightbox');
+            }
+        }
+
+        function showSyllabusModal(key) {
+            const data = syllabusData[key];
+            if (data) {
+                document.getElementById('syllabus-title').innerText = data.title;
+                document.getElementById('syllabus-details').innerHTML = data.details;
+                toggleLightbox('syllabus-lightbox');
+            }
+        }
+
+        function showSectorInfo(key) {
+            const detail = sectorData[key];
+            if (detail) {
+                document.getElementById('program-title').innerText = `${key} Sector Staffing Capabilities`;
+                document.getElementById('program-desc').innerHTML = detail;
+                toggleLightbox('program-lightbox');
+            }
+        }
+
+        // 6. Sliding Side-Panel Toggle
+        function toggleQuickInquiryPanel() {
+            document.getElementById('quickInquiryPanel').classList.toggle('active');
+        }
+
+        // 7. Adapt form fields based on whether the user is Employer or Candidate
+        function adaptFormFields() {
+            const role = document.getElementById('form-role-type').value;
+            const heading = document.getElementById('form-heading');
+            const grpCompany = document.getElementById('grp-company');
+            const lblName = document.getElementById('lbl-name');
+            const lblService = document.getElementById('lbl-service');
+            const formService = document.getElementById('form-service');
+
+            if (role === 'Candidate') {
+                heading.innerText = 'Apply for Placements';
+                grpCompany.style.display = 'none';
+                lblName.innerText = 'Your Full Name';
+                lblService.innerText = 'Preferred Job Field';
+                // Adjust select options
+                formService.innerHTML = `
+                    <option value="" disabled selected>Choose your area of expertise</option>
+                    <option value="Industrial / Production Worker">Industrial &amp; Production</option>
+                    <option value="Logistics Picker / Delivery">Logistics Picker &amp; Delivery</option>
+                    <option value="Hospitality or Retail Executive">Hospitality or Retail</option>
+                    <option value="IT Helpdesk support / Desktop Repair">IT &amp; Technical Support</option>
+                `;
+            } else {
+                heading.innerText = 'Connect With Our Hiring Team';
+                grpCompany.style.display = 'block';
+                lblName.innerText = 'Contact Person Name';
+                lblService.innerText = 'Required Hiring Category';
+                formService.innerHTML = `
+                    <option value="" disabled selected>Choose a workforce class</option>
+                    <option value="Contract & Gig Staffing">Contract &amp; Gig Staffing</option>
+                    <option value="Permanent Placement Sourcing">Permanent Direct Hiring</option>
+                    <option value="NAPS/NATS Apprentices">NAPS/NATS Apprentices</option>
+                    <option value="Payroll & Compliance Management">Payroll &amp; HR Compliance</option>
+                `;
+            }
+        }
+
+        function setFormCategory(category) {
+            const selectEl = document.getElementById('form-role-type');
+            if (selectEl) {
+                selectEl.value = category;
+                adaptFormFields();
+                window.location.hash = '#contact';
+            }
+        }
+
+        // 8. Dynamic Form Submission to WhatsApp Link
+        function handleFormSubmission(event, formType) {
+            event.preventDefault();
+            const form = event.currentTarget;
+            
+            const nameEl = form.querySelector('[id*="name"]') || form.querySelector('input[type="text"]');
+            const companyEl = form.querySelector('[id*="company"]') || form.querySelectorAll('input[type="text"]')[1];
+            const serviceEl = form.querySelector('[id*="service"]') || form.querySelector('select');
+            const phoneEl = form.querySelector('[id*="phone"]') || form.querySelector('input[type="tel"]');
+            const roleEl = form.getElementById ? form.getElementById('form-role-type') : null;
+
+            const nameVal = nameEl ? nameEl.value : 'Inquirer';
+            const roleVal = roleEl ? roleEl.value : 'Employer';
+            const companyVal = (companyEl && companyEl.offsetParent !== null) ? companyEl.value : 'Not Applicable (Candidate)';
+            const serviceVal = serviceEl ? serviceEl.value : 'General Sourcing Request';
+            const phoneVal = phoneEl ? phoneEl.value : '';
+
+            const message = `Hello Prarambh Skills Solutions,%0A%0AI am reaching out to submit a sourcing request.%0A%0A*Inquiry Category:* ${formType}%0A*User Class:* ${roleVal}%0A*Name:* ${nameVal}%0A*Company:* ${companyVal}%0A*Hiring Requirement:* ${serviceVal}%0A*Contact:* ${phoneVal}%0A%0APlease contact me to discuss the next deployment steps.`;
+
+            // Redirects with prefilled recruitment details
+            window.open(`https://wa.me/916230509372?text=${message}`, '_blank');
+            form.reset();
+            adaptFormFields();
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-bar');
+            nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+            nav.style.flexDirection = 'column';
+            nav.style.position = 'absolute';
+            nav.style.top = '100%';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.background = 'var(--color-navy)';
+            nav.style.padding = '20px';
+        }
+    </script>
+</body>
+</html>
