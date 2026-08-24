@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prarambh Skills Solutions | Sourcing &amp; Manpower supply</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="global-header">
+        <div class="header-top">
+            <div class="container header-top-container">
+                <div class="top-info-pills">
+                    <a href="mailto:info@prarambhskills.com" class="info-pill"><i class="fa-solid fa-envelope"></i> info@prarambhskills.com</a>
+                    <a href="tel:+916230509372" class="info-pill"><span class="pulse-indicator"></span> +91 62305-09372</a>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; font-weight: 500;">Corporate Recruitment &amp; Staffing</div>
+            </div>
+        </div>
+        <div class="container header-main-container">
+            <a href="index.html" class="brand-logo-container">
+                <img src="logo_site.jpeg" alt="Prarambh Logo" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">Prarambh Skills</span>
+                    <span class="brand-sub-title">Building Skills. Creating Opportunities.</span>
+                </div>
+            </a>
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Staffing Services</a>
+                <a href="industries.html" class="nav-link">Sectors</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button class="btn btn-primary" onclick="toggleLightbox('partner-lightbox')">Hire Talent</button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO GRID -->
+    <section class="hero-canvas-section">
+        <canvas id="interactive-particle-canvas"></canvas>
+        <div class="floating-wireframe-cube cube-1"></div>
+        <div class="floating-wireframe-cube cube-2"></div>
+        <div class="container hero-inner">
+            <div class="section-badge">Manpower Supply &amp; Recruitment Hub</div>
+            <h1 class="kinetic-headline">
+                <span>Connecting</span> <span>Enterprises</span> <span>With</span><br>
+                <span>India's</span> <span>Right</span> <span>Professional</span> <span>Talent</span>
+            </h1>
+            <p class="hero-subtitle">We organize key candidate sourcing channels to help enterprises hire and manage compliant talent pools across plants, hubs, and offices nationwide.</p>
+            <div class="hero-cta-group">
+                <a href="contact.html" class="btn btn-primary">Our Hiring Desk</a>
+                <a href="services.html" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE PLACEMENT STATS -->
+    <section class="about-section section-padding" style="background: var(--color-white);">
+        <div class="container" style="text-align: center;">
+            <div class="section-badge">Fast Metrics</div>
+            <h2 class="section-title">National Footprint At A Glance</h2>
+            <div class="animated-counters-grid" style="max-width: 800px; margin: 40px auto 0 auto;">
+                <div class="counter-card" data-target="45">
+                    <div class="counter-number">0+</div>
+                    <div class="counter-label">Active Enterprise Clients</div>
+                </div>
+                <div class="counter-card" data-target="2800">
+                    <div class="counter-number">0+</div>
+                    <div class="counter-label">Total Placed Candidates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Prarambh Skills</h4>
+                    <p>Building Skills. Creating Opportunities.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Staffing Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Institutional Alliances</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Campus Sourcing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul class="footer-links">
+                        <li>+91 62305-09372</li>
+                        <li>info@prarambhskills.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Prarambh Skills Solutions.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ACTION DOCK & FLOATING BUTTONS -->
+    <div class="floating-action-dock">
+        <a href="https://wa.me/916230509372" target="_blank" class="floating-action-btn floating-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:+916230509372" class="floating-action-btn floating-call"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- QUICK INQUIRY SLIDE-OUT PANEL -->
+    <div class="quick-inquiry-trigger" onclick="toggleQuickInquiryPanel()">Quick Sourcing Desk</div>
+    <div id="quickInquiryPanel" class="quick-inquiry-panel">
+        <div class="panel-close" onclick="toggleQuickInquiryPanel()"><i class="fa-solid fa-xmark"></i></div>
+        <h3 style="margin: 20px 0; font-weight:800;">Quick Callback</h3>
+        <form id="quickForm" onsubmit="handleFormSubmission(event, 'Quick Sourcing Callback')">
+            <div class="form-group">
+                <label class="form-label">Contact Name</label>
+                <input type="text" id="quick-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Company Name</label>
+                <input type="text" id="quick-company" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Requirement Details</label>
+                <input type="text" id="quick-service" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" id="quick-phone" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Call Me Back</button>
+        </form>
+    </div>
+
+    <!-- PARTNER LIGHTBOX OVERLAY -->
+    <div id="partner-lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutsideClick(event)">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="toggleLightbox('partner-lightbox')"><i class="fa-solid fa-xmark"></i></div>
+            <h3>Hire Top Talent</h3>
+            <p style="margin-bottom: 20px;">Provide details to initiate rapid recruiter assignment.</p>
+            <form onsubmit="handleFormSubmission(event, 'Employer Partnership')">
+                <div class="form-group">
+                    <label class="form-label">Organization Name</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Required Category</label>
+                    <select class="form-control" required>
+                        <option value="General Industrial Staff">General Industrial Staff</option>
+                        <option value="Logistics Workers">Logistics Workers</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Connect with Sourcing Team</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

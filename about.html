@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Prarambh Skills Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="global-header">
+        <div class="header-top">
+            <div class="container header-top-container">
+                <div class="top-info-pills">
+                    <a href="mailto:info@prarambhskills.com" class="info-pill"><i class="fa-solid fa-envelope"></i> info@prarambhskills.com</a>
+                    <a href="tel:+916230509372" class="info-pill"><span class="pulse-indicator"></span> +91 62305-09372</a>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; font-weight: 500;">Corporate Recruitment &amp; Staffing</div>
+            </div>
+        </div>
+        <div class="container header-main-container">
+            <a href="index.html" class="brand-logo-container">
+                <img src="logo_site.jpeg" alt="Prarambh Logo" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">Prarambh Skills</span>
+                    <span class="brand-sub-title">Building Skills. Creating Opportunities.</span>
+                </div>
+            </a>
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="services.html" class="nav-link">Staffing Services</a>
+                <a href="industries.html" class="nav-link">Sectors</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button class="btn btn-primary" onclick="toggleLightbox('partner-lightbox')">Hire Talent</button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="subpage-inner-header">
+        <div class="container">
+            <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: var(--color-green);">Meet Our Team</div>
+            <h1 class="section-title" style="color: var(--color-white);">Who We Are &amp; Our Core Values</h1>
+            <p class="section-desc" style="color: var(--color-slate-400);">Committed to building reliable, long-lasting hiring partnerships across India.</p>
+        </div>
+    </section>
+
+    <!-- STORY & VALUES -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-story">
+                    <h3>We Screen Candidates Through Real Relationships</h3>
+                    <p class="section-desc">We coordinate the complete hiring cycle—from local sourcing in rural communities to background verification and technical matches.</p>
+                </div>
+                <div class="value-pillars-grid">
+                    <div class="value-pillar">
+                        <h4>Targeted Sourcing</h4>
+                        <p>We leverage local networks to reach qualified candidates.</p>
+                    </div>
+                    <div class="value-pillar">
+                        <h4>Direct Verification</h4>
+                        <p>Every candidate undergoes direct reference checks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recruiter Cultural Banner -->
+            <div class="cultural-banner">
+                <div class="cultural-banner-bg">Recruit</div>
+                <p class="cultural-quote">
+                    “We call, we speak, we meet, we drink coffee, we shake hands, we say Namaste. We are humans and not robots.”
+                </p>
+                <div class="cultural-author">— HR Advisory Desk, Prarambh Skills Solutions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS PLACEMENT PIPELINES -->
+    <section class="section-padding" style="background: var(--color-slate-100);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Hiring Pipelines</div>
+                <h2 class="section-title">Campus Sourcing &amp; Training Tie-Ups</h2>
+                <p class="section-desc">We collaborate with local institutes to source active, job-ready candidates for your industry.</p>
+            </div>
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <div class="alliance-card" onclick="showSyllabusModal('AIU')">
+                        <div class="alliance-logo">AIU</div>
+                        <div class="alliance-info">
+                            <h4>Asian International University</h4>
+                            <p>Campus Placement Loop</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Vocational Stream</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alliance-card" onclick="showSyllabusModal('Orchid')">
+                        <div class="alliance-logo">OU</div>
+                        <div class="alliance-info">
+                            <h4>Orchid University</h4>
+                            <p>Sourcing Tie-Up</p>
+                            <div class="badge-grid">
+                                <span class="acc-badge">Workforce Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Refer index.html for standard footer components) -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Prarambh Skills Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOXES AND MODALS -->
+    <div id="syllabus-lightbox" class="lightbox-overlay" onclick="closeLightboxOnOutsideClick(event)">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="toggleLightbox('syllabus-lightbox')"><i class="fa-solid fa-xmark"></i></div>
+            <h3 id="syllabus-title">Sourcing Pipeline</h3>
+            <div id="syllabus-details" style="margin: 20px 0;">Details</div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="toggleLightbox('syllabus-lightbox'); window.location.href='contact.html';">Inquire for Active Freshers Pool</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

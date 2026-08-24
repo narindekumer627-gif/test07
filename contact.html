@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Prarambh Skills Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="global-header">
+        <div class="header-top">
+            <div class="container header-top-container">
+                <div class="top-info-pills">
+                    <a href="mailto:info@prarambhskills.com" class="info-pill"><i class="fa-solid fa-envelope"></i> info@prarambhskills.com</a>
+                    <a href="tel:+916230509372" class="info-pill"><span class="pulse-indicator"></span> +91 62305-09372</a>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; font-weight: 500;">Corporate Recruitment &amp; Staffing</div>
+            </div>
+        </div>
+        <div class="container header-main-container">
+            <a href="index.html" class="brand-logo-container">
+                <img src="logo_site.jpeg" alt="Prarambh Logo" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">Prarambh Skills</span>
+                    <span class="brand-sub-title">Building Skills. Creating Opportunities.</span>
+                </div>
+            </a>
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Staffing Services</a>
+                <a href="industries.html" class="nav-link">Sectors</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button class="btn btn-primary" onclick="toggleLightbox('partner-lightbox')">Hire Talent</button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="subpage-inner-header">
+        <div class="container">
+            <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: var(--color-green);">Get In Touch</div>
+            <h1 class="section-title" style="color: var(--color-white);">Connect With Our Hiring Team</h1>
+            <p class="section-desc" style="color: var(--color-slate-400);">Reach our regional offices or submit your recruitment requirements directly.</p>
+        </div>
+    </section>
+
+    <!-- HUB AND FORM -->
+    <section class="hub-section section-padding">
+        <div class="container">
+            <div class="hub-grid">
+                <div class="location-hub">
+                    <div class="hub-switch-tabs">
+                        <div class="hub-tab active" onclick="switchLocation('UP')">Registered Office (U.P.)</div>
+                        <div class="hub-tab" onclick="switchLocation('HP')">Branch Office (H.P.)</div>
+                    </div>
+
+                    <div id="pane-UP" class="location-view-pane active">
+                        <h4>Uttar Pradesh Headquarters</h4>
+                        <p class="section-desc">Administrative office overseeing East &amp; North deployment circles.</p>
+                        <div class="location-map-mock" style="margin-top: 20px;">
+                            <div class="mock-map-visual" style="background-image: linear-gradient(rgba(10,37,64,0.5), rgba(10,37,64,0.5)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80')"></div>
+                            <div class="map-pin-badge"><i class="fa-solid fa-location-dot"></i> Kushinagar, U.P.</div>
+                        </div>
+                        <div class="location-details-meta">
+                            <div class="meta-item">
+                                <h5>Address</h5>
+                                <p>H.N 294, Ground Floor, Inderpur, Kaptanganj, Kushinagar, U.P.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-HP" class="location-view-pane">
+                        <h4>Himachal Pradesh Branch</h4>
+                        <p class="section-desc">Located near major industrial zones to coordinate active on-site plant crew services.</p>
+                        <div class="location-map-mock" style="margin-top: 20px;">
+                            <div class="mock-map-visual" style="background-image: linear-gradient(rgba(10,37,64,0.5), rgba(10,37,64,0.5)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80')"></div>
+                            <div class="map-pin-badge"><i class="fa-solid fa-location-dot"></i> Baddi Solan, H.P.</div>
+                        </div>
+                        <div class="location-details-meta">
+                            <div class="meta-item">
+                                <h5>Address</h5>
+                                <p>128, Office No 10, Basanti Bhag, Baddi Solan, H.P.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAD FORM -->
+                <div class="lead-form-card">
+                    <h3 id="form-heading">Connect With Our Hiring Team</h3>
+                    <form id="leadForm" onsubmit="handleFormSubmission(event, 'Contact Page Sourcing')">
+                        <div class="form-group">
+                            <label class="form-label">You Are A:</label>
+                            <select id="form-role-type" class="form-control" onchange="adaptFormFields()" required>
+                                <option value="Employer" selected>Employer (Looking to Hire Staff)</option>
+                                <option value="Candidate">Candidate (Looking for Job Placement)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-name">Your Full Name</label>
+                            <input type="text" id="form-name" class="form-control" required>
+                        </div>
+                        <div class="form-group" id="grp-company">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" id="form-company" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-service">Required Category</label>
+                            <select id="form-service" class="form-control" required>
+                                <option value="Contract Staffing">Contract Staffing</option>
+                                <option value="Permanent Placement">Permanent Placement</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Callback Number</label>
+                            <input type="tel" id="form-phone" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Prarambh Skills Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+prarambh-website/
+│
+├── index.html         (Home page with 3D canvas and summaries)
+├── about.html         (About Us, values, cultural story, and alliances)
+├── services.html      (Full staffing & recruitment services details)
+├── industries.html    (Sectors we hire for)
+├── contact.html       (Hiring/Apply form & dual locations maps)
+│
+├── style.css          (Global styling, theme, glassmorphism, & layouts)
+└── script.js          (Particle system, 3D tilt, counters, & form controls)
