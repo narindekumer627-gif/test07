@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- --- SEO META TAGS --- -->
+    <title>Prarambh Skills Solutions | Official Platform Launching Soon</title>
+    <meta name="description" content="Prarambh Skills Solutions is launching its corporate staffing, recruitment, and manpower supply portal. Stay tuned for our official release at 9:00 AM.">
+    <meta name="keywords" content="corporate staffing portal, manpower supply launch, recruitment portal India, Baddi staffing agency, Kushinagar recruitment agency, staffing platform launch, temporary staffing service, job portal coming soon">
+    
+    <!-- Open Graph (Social Cards) -->
+    <meta property="og:title" content="Prarambh Skills Solutions | Official Platform Launching Soon">
+    <meta property="og:description" content="Prarambh Skills Solutions is launching its corporate staffing, recruitment, and manpower supply portal. Stay tuned for our official release at 9:00 AM.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo_site.jpeg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- --- EMBEDDED DESIGN STYLES --- -->
+    <style>
+        :root {
+            --color-navy: #0A2540;
+            --color-navy-light: #123054;
+            --color-green: #2ECC71;
+            --color-green-glow: rgba(46, 204, 113, 0.4);
+            --color-warm-accent: #F39C12;
+            --color-white: #FFFFFF;
+            --color-slate-100: #F8FAFC;
+            --color-slate-400: #94A3B8;
+            --color-slate-700: #334155;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-accent: 'Playfair Display', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-soft: 0 10px 40px -10px rgba(10, 37, 64, 0.3);
+            --shadow-glow: 0 0 25px rgba(46, 204, 113, 0.45);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: radial-gradient(circle at center, var(--color-navy-light) 0%, var(--color-navy) 100%);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* --- BACKGROUND EFFECTS --- */
+        #interactive-particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: all;
+        }
+
+        .floating-wireframe-cube {
+            position: absolute;
+            border: 2px dashed rgba(46, 204, 113, 0.15);
+            border-radius: 8px;
+            animation: float-slow 12s infinite linear;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .cube-1 { width: 120px; height: 120px; top: 15%; left: 8%; }
+        .cube-2 { width: 80px; height: 80px; bottom: 20%; right: 10%; }
+
+        @keyframes float-slow {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* --- LAUNCH HEADER --- */
+        .launch-header {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 37, 64, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-img {
+            height: 48px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 12px;
+        }
+
+        .brand-main-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-white);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-sub-title {
+            font-size: 0.7rem;
+            color: var(--color-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--color-green);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+
+        .pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--color-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: var(--shadow-glow);
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        /* --- MAIN SECTION CARD --- */
+        .launch-main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-soft);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-badge {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--color-green);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 24px;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+
+        .kinetic-headline {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .kinetic-headline span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealCharacter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes revealCharacter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .launch-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- COUNTDOWN TIMER --- */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .countdown-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 24px 30px;
+            border-radius: var(--radius-md);
+            min-width: 130px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .countdown-block:hover {
+            border-color: var(--color-green);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .countdown-block span {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--color-green);
+            display: block;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 15px rgba(46, 204, 113, 0.2);
+        }
+
+        .countdown-block .label {
+            font-size: 0.8rem;
+            color: var(--color-slate-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* --- NOTIFICATION CAPTURE FORM --- */
+        .notify-form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: var(--radius-md);
+        }
+
+        .notify-form-container h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-control {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-white);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-green);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px var(--color-green-glow);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+            color: var(--color-white);
+            background: linear-gradient(135deg, var(--color-green), #27ae60);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+        }
+
+        /* --- FOOTER --- */
+        .launch-footer {
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 37, 64, 0.4);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-slate-400);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            color: var(--color-slate-400);
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            color: var(--color-green);
+        }
+
+        @media (max-width: 768px) {
+            .brand-container, .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .brand-text-block {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 8px;
+            }
+
+            .glass-panel {
+                padding: 40px 24px;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-control, .btn {
+                width: 100%;
+            }
+
+            .countdown-container {
+                gap: 12px;
+            }
+
+            .countdown-block {
+                min-width: 100px;
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- NAVIGATION HEADER --- -->
+    <header class="launch-header">
+        <div class="container brand-container">
+            <div class="brand-logo-container">
+                <img src="logo_site.jpeg" alt="Prarambh Skills Solutions" class="brand-logo-img" onerror="this.style.display='none'">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">Prarambh Skills Solutions</span>
+                    <span class="brand-sub-title">Building Skills. Creating Opportunities.</span>
+                </div>
+            </div>
+            <div class="status-badge">
+                <span class="pulse-indicator"></span> Deployment Pending
+            </div>
+        </div>
+    </header>
+
+    <!-- --- MAIN CONTENT CARD & COUNTDOWN --- -->
+    <main class="launch-main">
+        <canvas id="interactive-particle-canvas"></canvas>
+        <div class="floating-wireframe-cube cube-1"></div>
+        <div class="floating-wireframe-cube cube-2"></div>
+        
+        <div class="container">
+            <div class="glass-panel">
+                <div class="section-badge">Official Portal Launch</div>
+                <h1 class="kinetic-headline">
+                    <span style="animation-delay: 0.1s;">Portal</span> 
+                    <span style="animation-delay: 0.2s;">Launching</span> 
+                    <span style="animation-delay: 0.3s;">9:00 AM</span> 
+                    <span style="animation-delay: 0.4s;">Morning</span>
+                </h1>
+                <p class="launch-subtitle">
+                    Our dynamic recruitment database, verified workforce pools, and contract staffing rosters are launching shortly.
+                </p>
+
+                <!-- Countdown Timer Grid -->
+                <div class="countdown-container">
+                    <div class="countdown-block">
+                        <span id="days">00</span>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="countdown-block">
+                        <span id="hours">00</span>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="countdown-block">
+                        <span id="minutes">00</span>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="countdown-block">
+                        <span id="seconds">00</span>
+                        <div class="label">Seconds</div>
+                    </div>
+                </div>
+
+                <!-- Registration Lead Capture Form -->
+                <div class="notify-form-container">
+                    <h3>Subscribe for Live Portal Updates</h3>
+                    <form onsubmit="handleNotificationSubmission(event)">
+                        <div class="form-group">
+                            <input type="email" id="subscriber-email" class="form-control" placeholder="Enter corporate email address" required>
+                            <button type="submit" class="btn">
+                                Notify Me <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- --- FOOTER --- -->
+    <footer class="launch-footer">
+        <div class="container footer-content">
+            <div>
+                &copy; 2026 Prarambh Skills Solutions. All Rights Reserved.
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- SCRIPT ENGINE (PARTICLES, TIMER & LIVE REDIRECT ROUTE) --- -->
+    <script>
+        // 1. Interactive Background Particle System
+        const canvas = document.getElementById('interactive-particle-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouse = { x: null, y: null, radius: 150 };
+
+            function initCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                createParticles();
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = (Math.random() - 0.5) * 0.8;
+                    this.size = Math.random() * 2 + 1;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(46, 204, 113, 0.4)';
+                    ctx.fill();
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        this.x -= dx / dist * force * 2;
+                        this.y -= dy / dist * force * 2;
+                    }
+                }
+            }
+
+            function createParticles() {
+                particles = [];
+                const count = Math.min(Math.floor(canvas.width / 15), 100);
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                connectParticles();
+                requestAnimationFrame(animateParticles);
+            }
+
+            function connectParticles() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist/120)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            window.addEventListener('resize', initCanvas);
+            window.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            initCanvas();
+            animateParticles();
+        }
+
+        // 2. Launch Timer and Live Redirect Controller
+        const launchTargetString = "2026-09-01 01:21:00"; 
+        const redirectDestination = "https://prarambhskills.com/";
+        
+        // Parse target date cross-browser
+        const parseTargetDate = (str) => {
+            const parts = str.split(/[- :]/);
+            return new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4], parts[5]);
+        };
+
+        const targetDate = parseTargetDate(launchTargetString).getTime();
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                // When 9:00 AM hits, redirect user to main portal
+                window.location.href = redirectDestination;
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Double digit string formatting
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        };
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        // 3. Lead Capture Sourcing Notification Router (WhatsApp Redirect)
+        function handleNotificationSubmission(event) {
+            event.preventDefault();
+            const emailVal = document.getElementById('subscriber-email').value;
+            const message = `Hello Prarambh Skills Solutions,%0A%0AI am requesting deployment updates for our corporate platforms.%0A%0A*Notification Email:* ${encodeURIComponent(emailVal)}%0A%0APlease add my email address to your launch registry.`;
+            
+            window.open(`https://wa.me/916230509372?text=${message}`, '_blank');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
